@@ -2,10 +2,11 @@ import { Model, DataTypes, Sequelize} from "sequelize";
 import { database } from "../databases";
 
 
-export class Books extends Model {
+export class Authors extends Model {
 
     public id!: number;
     public name!: string;
+    public createdAt!: Date;
     public updateAt!: Date
 
 
@@ -13,7 +14,7 @@ export class Books extends Model {
 }
 
 
-Books.init({
+Authors.init({
 
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
@@ -41,6 +42,6 @@ Books.init({
 
 },
     {
-        tableName: 'books',
+        tableName: 'authors',
         sequelize: database
     });
