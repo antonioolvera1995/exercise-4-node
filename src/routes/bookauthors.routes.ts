@@ -15,6 +15,7 @@ class BookAuthorsRoutes {
         this.router.delete('/:id', bookAuthorsController.deleteUsers);
         this.router.put('/:id', bookAuthorsController.putUsers);
         this.router.get('/authors/:id/books', bookAuthorsController.getAllBooks);
+        this.router.get('/all/all', bookAuthorsController.getAll);
 
     }
 

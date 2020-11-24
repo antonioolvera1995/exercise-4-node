@@ -118,15 +118,9 @@ class BookAuthorsController {
         where: {
           id: Number(req.params.id),
         },
-         include:Books
+        include: Books
       });
-      
-      // const user = await BookAuthors.findAll({
-      //   where: {
-      //     id: Number(req.params.id),
-      //   },
 
-      // });
 
       console.log(req.params.id);
 
@@ -141,6 +135,39 @@ class BookAuthorsController {
     }
 
   }
+
+
+
+  public async getAll(req: Request, res: Response) {
+
+    try {
+
+
+
+      BookAuthors.belongsTo(Books);
+      BookAuthors.belongsTo(Authors, {foreignKey: 'AuthorsId'});
+
+      const awesomeCaptain = await BookAuthors.findAll({
+       
+        include: [Books, Authors]
+      });
+
+
+   
+
+      res.send(awesomeCaptain);
+
+
+
+    } catch (error) {
+
+      console.log(error);
+      res.send(error);
+    }
+
+  }
+
+
 
 
 

@@ -60,5 +60,9 @@ BookAuthors.init({
         sequelize: database
     });
 
+
+
+
+    
 Authors.belongsToMany(Books, { through: 'bookauthors' ,foreignKey: 'AuthorsId', otherKey: 'BookId'});
 Books.belongsToMany(Authors, { through: 'bookauthors', foreignKey: 'BookId' , otherKey: 'AuthorsId'});
